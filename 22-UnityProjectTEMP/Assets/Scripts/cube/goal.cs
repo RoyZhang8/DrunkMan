@@ -12,7 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Goal : MonoBehaviour
+public class goal : MonoBehaviour
 {
     // A static field accessible by code anywhere
     static public bool goalMet = false;
@@ -23,8 +23,8 @@ public class Goal : MonoBehaviour
         if (other.gameObject.tag == "Man")
         {
             // If so, set goalMet to true
-            Goal.goalMet = true;
-
+            goal.goalMet = true;
+            
         }
     }
 

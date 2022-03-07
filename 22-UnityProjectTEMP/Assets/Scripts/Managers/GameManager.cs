@@ -167,6 +167,7 @@ public class GameManager : MonoBehaviour
             case GameState.Playing:
                 //if testing
                 if (TestGameManager) { RunTests(); }
+                if (goal.goalMet) { goal.goalMet = false; NextLevel(); }
                 break;
 
             case GameState.BeatLevel:
@@ -264,8 +265,8 @@ public class GameManager : MonoBehaviour
             gameLevelsCount++; //add to level count for next level
             loadLevel = gameLevelsCount - 1; //find the next level in the array
             SceneManager.LoadScene(gameLevels[loadLevel]); //load next level
-
             SetGameState(GameState.Playing);//set the game state to playing
+            
 
         }
         else
