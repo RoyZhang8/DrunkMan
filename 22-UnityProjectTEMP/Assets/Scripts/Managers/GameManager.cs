@@ -48,8 +48,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public GameState gameState = GameState.Title; //first game state
 
     [Header("GENERAL SETTINGS")]
-    public string gameTitle = "Untitled Game";  //name of the game
-    public string gameCredits = "Made by Me"; //game creator(s)
+    public string gameTitle = "The Way Home";  //name of the game
+    public string gameCredits = "Made by Ruoyu Zhang"; //game creator(s)
     public string copyrightDate = "Copyright " + thisDay; //date cretaed
 
     [Header("GAME SETTINGS")]
