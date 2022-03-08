@@ -55,11 +55,12 @@ public class GameManager : MonoBehaviour
     [Header("GAME SETTINGS")]
 
     [Tooltip("Will the high score be recoreded")]
-    public bool recordHighScore = false; //is the High Score recorded
+    public bool recordHighScore = true; //is the High Score recorded
 
     [SerializeField] //Access to private variables in editor
-    private int defaultHighScore = 1000;
-    static public int highScore = 1000; // the default High Score
+    private int defaultHighScore = 0;
+    static public int highScore = 0; // the default High Score
+    public int minscore = 0;
     public int HighScore { get { return highScore; } set { highScore = value; } }//access to private variable highScore [get/set methods]
 
     [Space(10)]
@@ -167,7 +168,10 @@ public class GameManager : MonoBehaviour
             case GameState.Playing:
                 //if testing
                 if (TestGameManager) { RunTests(); }
-                if (goal.goalMet) { goal.goalMet = false; NextLevel(); }
+                UpdateScore();
+                GetHighScore();
+                if (goal.goalMet) { goal.goalMet = false; NextLevel(); } 
+                if (hit.hitMet) { LostLife(); }
                 break;
 
             case GameState.BeatLevel:
@@ -224,7 +228,7 @@ public class GameManager : MonoBehaviour
             if (highScore <= defaultHighScore)
             {
                 highScore = defaultHighScore; //set the high score to defulat
-                PlayerPrefs.SetInt("HighScore", highScore); //update high score PlayerPref
+                PlayerPrefs.SetInt("MinStep", highScore); //update high score PlayerPref
             }//end if (highScore <= defaultHighScore)
         }//end  if (recordHighScore) 
 
@@ -283,6 +287,7 @@ public class GameManager : MonoBehaviour
         if (lives == 1) //if there is one life left and it is lost
         {
             GameOver(); //game is over
+            hit.hitMet = false;
 
         } 
         else
@@ -293,6 +298,7 @@ public class GameManager : MonoBehaviour
             if (resetLostLevel){
                 numberOfLives = lives; //set lives left for level reset
                 StartGame(); //restart the level
+                hit.hitMet = false;
             }//end if (resetLostLevel)
 
         } // end elseif
@@ -303,13 +309,18 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int point = 0)
     { //This method manages the score on update. 
 
-        score += point; 
-
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            point++;
+        }
+        score += point;
+        PlayerPrefs.SetInt("Step", score); //set the playerPref for the high score
         //if the score is more than the high score
         if (score > highScore)
         {
             highScore = score; //set the high score to the current score
-            PlayerPrefs.SetInt("HighScore", highScore); //set the playerPref for the high score
+            minscore = highScore;
+            PlayerPrefs.SetInt("HighStep", minscore); //set the playerPref for the high score
         }//end if(score > highScore)
 
     }//end CheckScore()
@@ -318,13 +329,13 @@ public class GameManager : MonoBehaviour
     {//Get the saved highscore
 
         //if the PlayerPref alredy exists for the high score
-        if (PlayerPrefs.HasKey("HighScore"))
+        if (PlayerPrefs.HasKey("HighStep"))
         {
             Debug.Log("Has Key");
-            highScore = PlayerPrefs.GetInt("HighScore"); //set the high score to the saved high score
+            minscore = PlayerPrefs.GetInt("HighStep"); //set the high score to the saved high score
         }//end if (PlayerPrefs.HasKey("HighScore"))
 
-        PlayerPrefs.SetInt("HighScore", highScore); //set the playerPref for the high score
+        PlayerPrefs.SetInt("HighStep", minscore); //set the playerPref for the high score
     }//end GetHighScore()
 
 

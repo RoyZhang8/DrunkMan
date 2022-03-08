@@ -170,8 +170,8 @@ MonoBehaviour:
   gameTitle: The Way Home
   gameCredits: Made by Ruoyu Zhang
   copyrightDate: Copyright 2022
-  recordHighScore: 0
-  defaultHighScore: 1000
+  recordHighScore: 1
+  defaultHighScore: 0
   numberOfLives: 3
   resetLostLevel: 0
   defaultEndMessage: Game Over

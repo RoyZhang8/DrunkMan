@@ -31,6 +31,7 @@ public class HUDCanvas : MonoBehaviour
     private int lives;
     private int score;
     private int highscore;
+    private int minscore;
 
     private void Start()
     {
@@ -57,6 +58,7 @@ public class HUDCanvas : MonoBehaviour
         lives = gm.Lives;
         score = gm.Score;
         highscore = gm.HighScore;
+        minscore = gm.minscore;
     }
 
     void SetHUD()
@@ -64,8 +66,8 @@ public class HUDCanvas : MonoBehaviour
         //if texbox exsists update value
         if (levelTextbox) { levelTextbox.text = "Level " + level + "/" + totalLevels; }
         if (livesTextbox) { livesTextbox.text = "Lives " + lives; }
-        if (scoreTextbox) { scoreTextbox.text = "Score " + score; }
-        if (highScoreTextbox) { highScoreTextbox.text = "High Score " + highscore; }
+        if (scoreTextbox) { scoreTextbox.text = "Step " + score; }
+        if (highScoreTextbox) { highScoreTextbox.text = "HighStep " + minscore; }
 
     }//end SetHUD()
 

@@ -1,9 +1,9 @@
 /****
  * Created by: Ruoyu Zhang
- * Data Created: Feb 11, 2022
+ * Data Created: Mar 5, 2022
  * 
- * Last Edited by: Feb 22, 2022
- * Last Edited: Feb 22, 2022
+ * Last Edited by: Mar 7, 2022
+ * Last Edited: Mar 7, 2022
  * 
  * Description: Create the goal of the game
  */
@@ -19,12 +19,11 @@ public class goal : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // When the trigger is hit by something
-        // Check to see if it's a Projectile
+        // Check to see if it's a Man
         if (other.gameObject.tag == "Man")
         {
             // If so, set goalMet to true
             goal.goalMet = true;
-            
         }
     }
 

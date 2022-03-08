@@ -2,7 +2,7 @@
  * Created by: Ruoyu Zhang
  * Date Created: Feb 28, 2022
  * 
- * Last Edited by: NA
+ * Last Edited by: Mar 7, 2022
  * Last Edited: Mar 7, 2022
  * 
  * Description: Create the way to rotate the cube and the screen
@@ -36,6 +36,7 @@ public class Rotate : MonoBehaviour
         Drag();
     }
 
+    //Drag the cube to make it turn
     void Drag()
     {
         if (Input.GetMouseButton(1))
@@ -55,6 +56,7 @@ public class Rotate : MonoBehaviour
         previousMousePosition = Input.mousePosition;
     }
 
+    //rotate the cube
     void Swipe()
     {
         if (Input.GetMouseButtonDown(1))
@@ -74,22 +76,6 @@ public class Rotate : MonoBehaviour
             {
                 Cube.transform.Rotate(0,-90,0,Space.World);
             }
-            else if (UpLeftSwipe(currentSwipe))
-            {
-                Cube.transform.Rotate(90, 0, 0, Space.World);
-            }
-            else if (UpRightSwipe(currentSwipe))
-            {
-                Cube.transform.Rotate(0, 0, -90, Space.World);
-            }
-            else if (DownLeftSwipe(currentSwipe))
-            {
-                Cube.transform.Rotate(0, 0, 90, Space.World);
-            }
-            else if (DownRightSwipe(currentSwipe))
-            {
-                Cube.transform.Rotate(-90, 0, 0, Space.World);
-            }
         }
     }
 
@@ -102,23 +88,4 @@ public class Rotate : MonoBehaviour
         return currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f;
     }
 
-    bool UpLeftSwipe(Vector2 swipe)
-    {
-        return currentSwipe.x < 0f && currentSwipe.y > 0;
-    }
-
-    bool UpRightSwipe(Vector2 swipe)
-    {
-        return currentSwipe.x > 0f && currentSwipe.y > 0;
-    }
-
-    bool DownLeftSwipe(Vector2 swipe)
-    {
-        return currentSwipe.x < 0f && currentSwipe.y < 0;
-    }
-
-    bool DownRightSwipe(Vector2 swipe)
-    {
-        return currentSwipe.x > 0f && currentSwipe.y < 0;
-    }
 }
