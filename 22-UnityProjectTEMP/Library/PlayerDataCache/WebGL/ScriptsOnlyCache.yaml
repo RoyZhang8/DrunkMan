@@ -767,4 +767,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu Scenes/end_scene.unity
   - Assets/Scenes/Game Scenes/level_00.unity
   - Assets/Scenes/Game Scenes/level_01.unity
-  playerPath: D:/TheWayHome/22-UnityProjectTEMP/Build
+  playerPath: D:/TheWayHome/22-UnityProjectTEMP/Build/Last

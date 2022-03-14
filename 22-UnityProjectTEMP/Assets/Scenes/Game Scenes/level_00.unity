@@ -209,6 +209,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1272107241298460315, guid: 7737f14275496e04887d6fdd247053a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566730014435833027, guid: 7737f14275496e04887d6fdd247053a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7594280293046766777, guid: 7737f14275496e04887d6fdd247053a0, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -256,6 +264,14 @@ PrefabInstance:
     - target: {fileID: 7594280293046766782, guid: 7737f14275496e04887d6fdd247053a0, type: 3}
       propertyPath: m_Name
       value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089070659751475881, guid: 7737f14275496e04887d6fdd247053a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245056208374269986, guid: 7737f14275496e04887d6fdd247053a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7737f14275496e04887d6fdd247053a0, type: 3}
@@ -499,6 +515,7 @@ MonoBehaviour:
   endMsg: 
   startScene: start_scene
   gameOverScene: end_scene
+  loseScence: end_scene 1
   gameLevels:
   - level_00
   - level_01

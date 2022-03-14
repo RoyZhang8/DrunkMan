@@ -158,6 +158,7 @@ MonoBehaviour:
   copyrightDate: Copyright 2022
   recordHighScore: 1
   defaultHighScore: 1000
+  minscore: 0
   numberOfLives: 0
   resetLostLevel: 0
   defaultEndMessage: Game Over
@@ -166,6 +167,7 @@ MonoBehaviour:
   endMsg: 
   startScene: start_scene
   gameOverScene: end_scene
+  loseScence: end_scene 1
   gameLevels:
   - level_00
   - level_01
@@ -1197,7 +1199,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Over
+  m_Text: You Win
 --- !u!222 &1603986572
 CanvasRenderer:
   m_ObjectHideFlags: 0
